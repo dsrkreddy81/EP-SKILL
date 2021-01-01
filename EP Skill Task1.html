@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>EP TASK-1</title>
+<script type="text/javascript">
+function validation()
+{
+var a = document.form.name.value;
+var b = document.form.pass.value;
+if(a=="")
+{
+alert("Please Enter Your Name");
+document.form.name.focus();
+return false;
+}
+else if(b=="")
+{
+alert("Please Enter Your Password");
+document.form.pass.focus();
+return false;
+}
+else if ((a.length < 8) || (a.length > 12))
+{
+alert("Your Username must be 8 to 12 Character");
+document.form.name.select();
+return false;
+}
+else if ((b.length < 8) || (b.length > 12))
+{
+alert("Your Password must be 8 to 12 Character");
+document.form.pass.select();
+return false;
+}
+else if(a==b)
+{
+alert("Welcome"+" "+a);
+}
+}
+</script>
+</head>
+<body>
+<form align="center" name="form" method="post" onsubmit="return validation()">
+<br><br><br><h1>EP TASK-1_Login Form</h1>
+<tr>
+<td> Username:</td>
+<td><input type="text" name="name" placeholder="Username"></td>
+</tr><br><br>
+<tr>
+<td> Password:</td>
+<td><input type="password" name="pass" placeholder="Password"></td>
+</tr><br><br>
+<tr>
+<td><input type="submit" name="sub" value="Login"></td>
+</tr>
+</form>
+</body>
+</html>
