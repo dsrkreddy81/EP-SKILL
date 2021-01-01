@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>EP TASK-2</title><br>
+<script type="text/javascript">
+function validation()
+{
+var a = document.form.name.value;
+var b = document.form.pass.value;
+var email = document.form.Email;
+var phone = document.form.phone.value;
+var sub=document.form.subs.value;
+if(a=="")
+{
+alert("Please Enter Your Name");
+document.form.name.focus();
+return false;
+}
+else if(b=="")
+{
+alert("Please Enter Your Password");
+document.form.pass.focus();
+return false;
+}
+if (email.value == "")
+{
+alert("Please enter a valid e-mail address.");
+email.focus();
+return false;
+}
+else if(phone=="")
+{
+alert("please Enter the Contact Number");
+document.form.phone.focus();
+return false;
+}
+else if(sub=="Select an Subject")
+{
+alert("You have to select your Favourite Subject");
+}
+else if ((a.length < 8) || (a.length > 12))
+{
+alert("Your Username must be 8 to 12 Character");
+document.form.name.select();
+return false;
+}
+else if ((b.length < 8) || (b.length > 12))
+{
+alert("Your Password must be 8 to 12 Character");
+document.form.pass.select();
+return false;
+}
+else if (email.value.indexOf("@", 0) < 1)
+{
+alert("Please enter a valid e-mail address.");
+email.focus();
+return false;
+}
+else if (email.value.indexOf(".", 0) < 1)
+{
+alert("Please enter a valid e-mail address.");
+email.focus();
+return false;
+}
+else if(isNaN(phone) || phone.length > 10 || phone.length <10)
+{
+alert("Enter the valid Phone Number(Like : 9999999999) with 10 Character");
+document.form.phone.focus();
+return false;
+}
+else if(a==b)
+{
+alert("Welcome"+" "+a);
+}
+}
+function ValidateForm(form){
+ErrorText= "";
+if ( ( form.gender[0].checked == false ) && ( form.gender[1].checked == false ) )
+{
+alert ( "Please choose your Gender: Male or Female" );
+return false;
+}
+else if ( ( form.game[0].checked == false ) && ( form.game[1].checked == false ) )
+{
+alert ( "Please choose your Favourite Game" );
+return false;
+}
+else if (ErrorText= "") { form.submit() }
+}
+</script>
+</head>
+<body>
+<form align="center" name="form" method="post" onsubmit="return validation()">
+<br><br><br><h1>EP TASK-2__Registration Form</h1>
+<tr>
+<td> Username:</td>
+<td><input type="text" name="name" placeholder="Username"></td>
+</tr><br><br>
+<tr>
+<td> Password:</td>
+<td><input type="password" name="pass" placeholder="Password"></td>
+</tr><br><br>
+<tr>
+<td> Email:</td>
+<td><input type="text" name="Email" placeholder="Email"></td>
+</tr><br><br>
+<tr>
+<td> Phone No:</td>
+<td><input type="text" name="phone" placeholder="Phone No"></td>
+</tr><br><br>
+<tr>
+Your Gender: <input type="radio" name="gender" value="Male"> Male
+<input type="radio" name="gender" value="Female"> Female
+</tr><br><br>
+<tr>
+Favourite Game: <input type="checkbox" name="game" value="Chess"> Chess
+<input type="checkbox" name="game" value="Cricket"> Cricket
+</tr><br>
+<tr>
+<tr><h4 class="sub">Favourite subject:
+<select name="subs">
+  <option value="Select an Subject">Select an Subject</option>
+  <option value="c">c</option>
+  <option value="py">py</option>
+  <option value="html">html</option>
+  <option value="java">java</option>
+</select>
+</tr><br><br>
+<tr>
+<td><input type="submit" name="sub" value="Register" onClick="ValidateForm(this.form)"></td>
+</tr>
+</form>
+</body>
+</html>
