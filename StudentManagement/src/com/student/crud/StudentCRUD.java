@@ -22,7 +22,7 @@ public class StudentCRUD {
 	public int StudentDelete(StudentBean student,String id) throws ClassNotFoundException, SQLException 
 	{
 		Connection con=StudentDBUtil.DBConnection();
-		PreparedStatement ps=con.prepareStatement("delete from student where Regnum="+id);
+		PreparedStatement ps=con.prepareStatement("delete from student where regno="+id);
 		int i=ps.executeUpdate();
 		con.close();
 		return i;
@@ -32,14 +32,14 @@ public class StudentCRUD {
 		Connection con=StudentDBUtil.DBConnection();
 		String qry="";
 		if(para==1) {
-			qry="update student "+"set name=? "+"where Regnum=?";
+			qry="update student "+"set name=? "+"where regno=?";
 		}
 		else if(para==2) {
-			qry="update student "+"set Regnum=? "+"where Regnum=?";
+			qry="update student "+"set rego=? "+"where regno=?";
 		}
 		else
 		{
-			qry="update student "+"set email=? "+"where Regnum=?";
+			qry="update student "+"set email=? "+"where regno=?";
 		}
 		PreparedStatement ps=con.prepareStatement(qry);
 		ps.setString(1, upval);
@@ -53,7 +53,7 @@ public class StudentCRUD {
 		Connection con=StudentDBUtil.DBConnection();
 		PreparedStatement ps=con.prepareStatement("select * from student");
 		ResultSet rst=ps.executeQuery();
-		System.out.println("Regnum\t\tName\t\tEmail");
+		System.out.println("Regno\t\tName\t\tEmail");
 		while(rst.next())
 		{
 			System.out.println(rst.getLong(1)+"\t"+rst.getString(2)+"\t\t"+rst.getString(3));
